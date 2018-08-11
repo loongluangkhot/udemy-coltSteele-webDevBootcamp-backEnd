@@ -1,0 +1,23 @@
+i.icon {
+    font-size: 1.5em;
+}
+
+span.header {
+    position: relative;
+    bottom: 4px;
+}
+
+.container.main {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+#edit-form, #delete-form {
+    display: inline-block;
+}
+
+i.eye.icon {
+    position: relative;
+    left: 15px;
+    top: 3px;
+}

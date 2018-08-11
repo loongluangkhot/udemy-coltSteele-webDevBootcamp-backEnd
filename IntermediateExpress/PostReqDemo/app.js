@@ -18,6 +18,8 @@ app.get("/friends", function(req,res) {
 
 app.post("/addfriend", function(req,res) {
     friends.push(req.body.newfriend);
+    // console.log(req.query);
+    console.log(req.body);
     res.redirect("/friends");
 });
 

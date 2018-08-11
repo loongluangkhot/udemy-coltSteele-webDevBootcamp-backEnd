@@ -6,6 +6,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/results", function(req, res) {
+    console.log(req.body);
     var searchStr = req.query.searchStr;
     var url = `http://omdbapi.com/?s=${searchStr}&apikey=thewdb`
     request(url, function(error, response, body) {
