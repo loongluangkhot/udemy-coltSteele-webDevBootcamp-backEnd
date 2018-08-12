@@ -35,7 +35,7 @@ app.get("/campgrounds", function(req, res) {
             console.log(err);
         } else {
             // console.log(allCampgrounds);
-             res.render("./campgrounds/campgrounds", {campgrounds: allCampgrounds});
+             res.render("./campgrounds/index", {campgrounds: allCampgrounds});
         }
     });
 });
