@@ -1,16 +1,18 @@
-// REQUIRE DEPENDENCIES
+// REQUIRE NPM DEPENDENCIES
 var express = require("express");
-var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-var Campground = require("./models/campground");
-var Comment = require("./models/comment");
-var seedDB = require("./seed");
 var session = require('express-session');
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
+var methodOverride = require('method-override');
+
+// REQUIRE MONGOOSE MODELS
+var Campground = require("./models/campground");
+var Comment = require("./models/comment");
 var User = require("./models/user");
+var seedDB = require("./seed");
 
 // REQUIRE ROUTERS
 var indexRoutes = require('./routes/index');
@@ -18,9 +20,11 @@ var campgroundRoutes = require('./routes/campgrounds');
 var commentRoutes = require('./routes/comments');
 
 // SET UP APP
+var app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride('_method'));
 
 // SET UP DB
 mongoose.connect('mongodb://localhost:27017/yelpcamp', { useNewUrlParser: true });
