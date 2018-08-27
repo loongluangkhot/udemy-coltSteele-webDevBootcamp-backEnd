@@ -23,13 +23,14 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 // CREATE ROUTE
 router.post("/", middleware.isLoggedIn, function(req, res) {
     var newName = req.body.name;
+    var newPrice = req.body.price;
     var newImage = req.body.image;
     var newDescription = req.body.description;
     var newAuthor = {
         id: req.user._id,
         username: req.user.username
     };
-    var newCampground = {name: newName, image: newImage, description: newDescription, author: newAuthor};
+    var newCampground = {name: newName, price: newPrice, image: newImage, description: newDescription, author: newAuthor};
     Campground.create(newCampground, function(err, newCampground) {
         if(err) {
             console.log(err);
